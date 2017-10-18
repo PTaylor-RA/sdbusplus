@@ -2,3 +2,5 @@
 __pycache__
 *.pyc
 *.pyo
+/autom4te.cache/
+/aclocal/

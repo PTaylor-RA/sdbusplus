@@ -1,0 +1,14 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: sdbusplus
+Description: C++ bindings for systemd dbus APIs
+URL: https://github.com/openbmc/sdbusplus
+Version: 1.0
+Requires:  libsystemd >= 221
+Requires.private:  
+Libs: -L${exec_prefix}/lib -lsdbusplus
+Cflags: -I${prefix}/include
+
