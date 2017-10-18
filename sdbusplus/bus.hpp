@@ -341,7 +341,7 @@ inline bus::bus(busp_t b) : _bus(sd_bus_ref(b))
 {
     _bus.get_deleter().deleter = sd_bus_unref;
 
-#if true
+#if 1
     // Emitting object added causes a message to get the properties
     // which can trigger a 'transaction' in the server bindings.  If
     // the bus isn't up far enough, this causes an assert deep in
@@ -356,7 +356,7 @@ inline bus::bus(busp_t b) : _bus(sd_bus_ref(b))
 
 inline bus::bus(busp_t b, std::false_type) : _bus(b)
 {
-#if true
+#if 1
     // Emitting object added causes a message to get the properties
     // which can trigger a 'transaction' in the server bindings.  If
     // the bus isn't up far enough, this causes an assert deep in
