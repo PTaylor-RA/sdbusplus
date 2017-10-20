@@ -97,13 +97,16 @@ template <char C1, char... C> struct tuple_type_id
      * https://gcc.gnu.org/bugzilla/show_bug.cgi?id=66421
      */
     /** A tuple containing the type-characters. */
-#if (__GNUC__ > 5) || (__GNUC__ == 5 && (__GNUC_MINOR__ >= 2))
-    static constexpr auto value = std::make_tuple(C1, C...);
-#else
+//#if (__GNUC__ > 5) || (__GNUC__ == 5 && (__GNUC_MINOR__ >= 2))
+//    static constexpr auto value = std::make_tuple(C1, C...);
+//#else
     static constexpr decltype(std::make_tuple(C1, C...)) value =
         std::make_tuple(C1, C...);
-#endif
+//#endif
 };
+
+template <char C1, char... C>
+constexpr decltype(std::make_tuple(C1, C...)) tuple_type_id<C1, C...>::value;
 
 /** @fn type_id_single()
  *  @brief Get a tuple containing the dbus type character(s) for a C++ type.
